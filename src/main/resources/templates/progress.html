@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爬取进度监控</title>
+    <script src="/js/jquery.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; }
+        body { font: 22px Georgia, serif; }
+
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section { display: block; }
+
+        #page-wrap { width: 690px; margin: 80px auto; }
+
+        body { background: #333; color: #eee; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+        h1 { font-size:30px; font-weight: 600; margin: 0 0 30px 0; }
+        footer p{line-height: 2}
+        header a,footer a{color: #fff;}
+
+        pre {
+            background: black;
+            text-align: left;
+            padding: 20px;
+            margin: 0 auto 30px auto;
+        }
+        .meter {
+            height: 20px;  /* Can be anything */
+            position: relative;
+            margin: 60px 0 20px 0; /* Just for demo spacing */
+            background: #555;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+            -moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+            box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+        }
+        .meter > span {
+            display: block;
+            height: 100%;
+            -webkit-border-top-right-radius: 8px;
+            -webkit-border-bottom-right-radius: 8px;
+            -moz-border-radius-topright: 8px;
+            -moz-border-radius-bottomright: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            -webkit-border-top-left-radius: 20px;
+            -webkit-border-bottom-left-radius: 20px;
+            -moz-border-radius-topleft: 20px;
+            -moz-border-radius-bottomleft: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: rgb(43,194,83);
+            background-image: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    left top,
+                    color-stop(0, rgb(43,194,83)),
+                    color-stop(1, rgb(84,240,84))
+            );
+            background-image: -moz-linear-gradient(
+                    center bottom,
+                    rgb(43,194,83) 37%,
+                    rgb(84,240,84) 69%
+            );
+            -webkit-box-shadow:
+                    inset 0 2px 9px  rgba(255,255,255,0.3),
+                    inset 0 -2px 6px rgba(0,0,0,0.4);
+            -moz-box-shadow:
+                    inset 0 2px 9px  rgba(255,255,255,0.3),
+                    inset 0 -2px 6px rgba(0,0,0,0.4);
+            box-shadow:
+                    inset 0 2px 9px  rgba(255,255,255,0.3),
+                    inset 0 -2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .meter > span:after, .animate > span > span {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            /*background-image:*/
+                    /*-webkit-gradient(linear, 0 0, 100% 100%,*/
+                    /*color-stop(.25, rgba(255, 255, 255, .2)),*/
+                    /*color-stop(.25, transparent), color-stop(.5, transparent),*/
+                    /*color-stop(.5, rgba(255, 255, 255, .2)),*/
+                    /*color-stop(.75, rgba(255, 255, 255, .2)),*/
+                    /*color-stop(.75, transparent), to(transparent)*/
+                    /*);*/
+            /*background-image:*/
+                    /*-moz-linear-gradient(*/
+                            /*-45deg,*/
+                            /*rgba(255, 255, 255, .2) 25%,*/
+                            /*transparent 25%,*/
+                            /*transparent 50%,*/
+                            /*rgba(255, 255, 255, .2) 50%,*/
+                            /*rgba(255, 255, 255, .2) 75%,*/
+                            /*transparent 75%,*/
+                            /*transparent*/
+                    /*);*/
+            z-index: 1;
+            -webkit-background-size: 50px 50px;
+            -moz-background-size: 50px 50px;
+            background-size: 50px 50px;
+            -webkit-animation: move 2s linear infinite;
+            -moz-animation: move 2s linear infinite;
+            -webkit-border-top-right-radius: 8px;
+            -webkit-border-bottom-right-radius: 8px;
+            -moz-border-radius-topright: 8px;
+            -moz-border-radius-bottomright: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            -webkit-border-top-left-radius: 20px;
+            -webkit-border-bottom-left-radius: 20px;
+            -moz-border-radius-topleft: 20px;
+            -moz-border-radius-bottomleft: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            overflow: hidden;
+        }
+
+        .animate > span:after {
+            display: none;
+        }
+
+        @-webkit-keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-moz-keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        .orange > span {
+            background-color: #f1a165;
+            background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+            background-image: -webkit-linear-gradient(#f1a165, #f36d0a);
+        }
+        .red > span {
+            background-color: #f0a3a3;
+            background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
+            background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
+        }
+        .nostripes > span > span, .nostripes > span:after {
+            -webkit-animation: none;
+            -moz-animation: none;
+            background-image: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrap" style="text-align: right;">
+        <div class="meter">
+            <span style="width: 0%"></span>
+        </div>
+        <span id="persent" style="font-size: 40px;"></span>
+    </div>
+    <div style="margin: 50px auto;line-height: 35px;width: 550px;height: 400px">
+        <p id="list"></p>
+    </div>
+    <script type='text/javascript'>
+        var timerId;
+        var progressList = [];
+        var boo = $(".meter > span");
+        var pers = $("#persent");
+        var aa = 0;
+        $(function() {
+            //每隔1秒自动调用方法，实现进度条的实时更新
+            timerId = setInterval(getForm,800);
+        });
+        function getForm(){
+            $.ajax({
+                type:"post",
+                url:"getProgress",
+                dataType:"json",//设置返回数据的格式
+                success:function(data) {
+                    progressList = data.progressList;
+                    //后台停止、同时数组无参数时，说明后台无线程运行
+                    //后台停止、同时数组有参数时，说明后台线程运行完毕
+                    if(data.stop) {
+                        clearInterval(timerId);
+                    }
+                    $("#list").empty();
+                    var allSize = 0;
+                    var test = 0;
+                    $.each(progressList,function (i,item) {
+                        var currentProgress = item.currentProgress;
+                        var size = item.size;
+                        if (currentProgress == size) {
+                            $("#list").append("<span>"+item.startPageUrl+"</span>"
+                                +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                                +"<span style='color: #1d9d74'>" +currentProgress+"</span>"
+                                +"/"+"<span style='color: #0064b6'>" +size+"</span>"
+                                +"<span>&nbsp;&nbsp;完成</span>"
+                                +"<br>");
+                        } else {
+                            $("#list").append("<span>"+item.startPageUrl+"</span>"
+                                +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                                +"<span style='color: #1d9d74'>" +currentProgress+"</span>"
+                                +"/"+"<span style='color: #0064b6'>" +size+"</span>"+"<br>");
+                        }
+                        allSize+=item.size;
+                        test+=item.currentProgress;
+                    });
+
+                    var persent = test/allSize;
+                    if(allSize == 0) {
+                    } else {
+                        var ar = parseInt(persent*100)+'%';
+                        pers.text(ar);
+                        boo.animate({width: ar}, 100);
+                    }
+                },
+                //请求出错的处理
+                error:function(){
+                    clearInterval(timerId);
+                    alert("请求出错");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${novel.name}+'最新章节'"></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="../css/basic.css" />
+<link rel="stylesheet" type="text/css" href="../css/body_inner.css" />
+</head>
+<body>
+<div class="Layout topbox">
+  <div class="topbar">
+    <div class="mainbox">
+      <div class="left_con">
+        <ul>
+          <li><a href="/" title="新书小说网-锦尚中国源码论坛">新书在线-世间唯有读书高</a></li>
+          <li><em class="ver">|</em><a href="http://demo6.52jscn.com/wap.php" class="name" style="color:#F00; text-decoration:underline" title="在手机上阅读" target="_blank">手机版</a></li><li><em class="ver">|</em><a href="/over.html" class="name" style="color:#F00;" title="完本小说" target="_blank">完本小说</a></li><li><em class="ver">|</em><a href="/txt.html" class="name" style="color:#F00;" title="小说下载" target="_blank">小说下载</a></li>
+        </ul>
+      </div>
+      <div class="right_con">
+        <ul class="UL">
+          <li>本站所有小说，均为<font class="red"> 全文免费在线阅读 </font>！</li>
+          <li><em class="ver">|</em><a href="javascript:" title="加入收藏夹" onclick="addBookmark('新书在线-世间唯有读书高','http://demo6.52jscn.com/')">收藏本站</a></li>
+        </ul>
+        <ul class="fUL">
+          <li><a href="/" title="返回首页">返回首页</a></li>
+		  <li><em class="ver">|</em><a href="/xuanhuan.html" title="玄幻奇幻小说">玄幻奇幻</a></li><li><em class="ver">|</em><a href="/xianxia.html" title="仙侠武侠小说">仙侠武侠</a></li><li><em class="ver">|</em><a class="con" href="/dushi.html" title="都市言情小说">都市言情</a></li><li><em class="ver">|</em><a href="/chuanyue.html" title="穿越历史小说">穿越历史</a></li><li><em class="ver">|</em><a href="/kehuan.html" title="科幻灵异小说">科幻灵异</a></li><li><em class="ver">|</em><a href="/tongren.html" title="同人网游小说">同人网游</a></li><li><em class="ver">|</em><a href="/paihangbang.html" title="小说排行榜小说">小说排行榜</a></li><li><em class="ver">|</em><a href="/shuku.html" title="小说书库小说">小说书库</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="Layout h">
+  <div class="header">
+    <div class="top">
+      <div class="logo"><a href="/" title="新书小说网-锦尚中国源码论坛"><img src="/images/logo.png" alt="新书小说网-锦尚中国源码论坛" /></a></div>
+      <div class="c_con">
+      </div>
+      <div class="s_box">
+        <div class="s_entry"></div>
+        <form name="searchform" id="searchform" method="get" target="_blank" action="/plus/search.php">		
+			<input type="hidden" name="kwtype" value="0" />
+			<input type="hidden" name="searchtype" value="" />
+			<input name="q" id="searchword" type="text" maxlength="18" />
+			<input type="submit" value="搜索" id="s_btn" />
+        </form>
+        <div class="hotword">
+			<h3>热搜：</h3>
+         </div>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="box">
+	  <a href="/" class="home" title="新书小说网-锦尚中国源码论坛">新书小说网-锦尚中国源码论坛</a>
+	  <a href="/xuanhuan.html" title="玄幻奇幻小说">玄幻・奇幻</a><a href="/xianxia.html" title="仙侠武侠小说">仙侠・武侠</a><a class="ph" href="/dushi.html" title="都市言情小说">都市・言情</a><a href="/chuanyue.html" title="穿越历史小说">穿越・历史</a><a href="/kehuan.html" title="科幻灵异小说">科幻・灵异</a><a href="/tongren.html" title="同人网游小说">同人・网游</a><a href="/paihangbang.html" title="小说排行榜小说">小说排行榜</a><a href="/shuku.html" title="小说书库小说">小说书库</a>
+		</div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<!--body开始-->
+<div class="Layout local">当前位置：<a href="/" title="新书小说网-锦尚中国源码论坛">锦绣书城</a> > <a href='/dushi.html' th:text="${novel.novelType.typeName}">穿越历史小说</a> > <a th:text="${novel.name}" href='/' title="人皇纪"></a></div>
+<div class="clear"></div>
+<div class="Layout no_h">
+  <div class="Con jj">
+    <div class="Left">
+      <div class="p_box">
+                <div class="pic"><a><img th:src="${novel.picUrl}" alt="官道无疆小说" /></a></div>
+        <div class="rmxx_box">
+          <h2>其他热门小说</h2>
+          <div class="a_box HOT_BOX">
+			<a href="/luanhaomen/" title="乱豪门" target="_blank">乱豪门</a><a href="/chaoshenjiyouhuo/" title="超神级诱惑" target="_blank">超神级诱惑</a><a href="/shitianren/" title="弑天刃" target="_blank">弑天刃</a><a href="/luetianji/" title="掠天记" target="_blank">掠天记</a><a href="/xinghunzhanshen/" title="星魂战神" target="_blank">星魂战神</a><a href="/wuqidashi/" title="武器大师" target="_blank">武器大师</a><a href="/quannenyundongyuan/" title="全能运动员" target="_blank">全能运动员</a><a href="/yishizhilieyantianxia/" title="异世之猎艳天下" target="_blank">异世之猎艳天下</a><a href="/xianluzhizun/" title="仙路至尊" target="_blank">仙路至尊</a><a href="/luanyumiren/" title="乱欲迷人" target="_blank">乱欲迷人</a><a href="/shengongbaochuancheng/" title="申公豹传承" target="_blank">申公豹传承</a><a href="/zhongshengxiyouzhiwanjieyaozun/" title="重生西游之万界妖尊" target="_blank">重生西游之万界妖尊</a><a href="/wushenfengbao/" title="武神风暴" target="_blank">武神风暴</a><a href="/dushiqiyuan/" title="都市奇缘" target="_blank">都市奇缘</a><a href="/kenanzhimaolijiejie/" title="柯南之毛利姐姐" target="_blank">柯南之毛利姐姐</a>
+                      
+          </div>
+        </div>
+      </div>
+      <div class="j_box">
+        <div class="title">
+          <h2 th:text="${novel.name}">人皇纪</h2>
+        </div>
+        <div class="info">
+          <ul>
+            <li><span>作者：</span><a href='/ruigen.html' th:text="${novel.author}" target='_blank'>黄埔奇</a></li>
+            <li class="lb"><span>类型：</span>[<A href='/dushi.html' target='_blank' th:text="${novel.novelType.typeName}" title='都市言情小说' >穿越历史小说</A>]</li>
+            <li><span>总点击：</span><font id="cms_clicks">61</font></li>
+            <li><span>月点击：</span><font id="cms_mclicks">0</font></li>
+            <li class="zdj"><span>周点击：</span><font id="cms_wclicks">0</font></li>
+            <li><span>总字数：</span><font id="cms_ready_1">67460</font></li>
+            <li><span>创作日期：</span><font id="cms_favorites">0</font></li>
+            <li class="wj"><span>状态：</span>连载中</li>
+          </ul>
+          <div class="praisesBTN"><a href="javascript:ajax_praise('520');" title="推荐本书！"><font id="cms_praises">12</font> 推荐本书！</a></div>
+        </div>
+        <div class="words">
+            <!--最新章节：<a href="/guandaowujiang/477.html">第一卷 恰同学少年 第二十三节 邂逅（求推荐票！）</a>（2015-12-22 16:58:48）-->
+			 <p th:text="${novel.resume}"></p>
+        </div>
+        <div class="read_btn">
+          <div class="btn" style="width:328px"><a href="javascript:addBookmark('官道无疆| 瑞根-新书小说网-锦尚中国源码论坛')" class="sc" title="收藏本书" style="margin-right:2px">加入收藏夹</a> <a href="/txt/guandaowujiang.html" class="txt" title="官道无疆txt下载" target="_blank">官道无疆txt下载</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="Right">
+      <div class="r_box tab">
+        <div class="head"> <a class="l active" showBOX="BOX1">同类推荐</a> <a class="r" showBOX="BOX2">作者其他作品</a> </div>
+        <div class="box BOX1" style="display:block;">
+          <ul>
+		  <li><a href='/hesaozitongjiderizi/' title='和嫂子同居的日子' target='_blank'>和嫂子同居的日子</a><span><a href='/qinchangqing.html' title='秦长青作品' target='_blank'>秦长青</a></span></li><li class='first_con'><div class='pic'><a href='/hesaozitongjiderizi/' title='和嫂子同居的日子' target='_blank'><img class='lazy' src='/uploads/allimg/c151222/1450M305E0A0-2PD.jpg' alt='和嫂子同居的日子' /></a></div>
+				<div class='info'><p><a href='/hesaozitongjiderizi/' target='_blank'>简介：……</a></p>
+				</div>
+			</li><li><a href='/wujieshushi/' title='巫界术士' target='_blank'>巫界术士</a><span><a href='/wenchaogong.html' title='文抄公作品' target='_blank'>文抄公</a></span></li><li><a href='/yishizhizun/' title='一世之尊' target='_blank'>一世之尊</a><span><a href='/aiqianshuidewuzei.html' title='爱潜水的乌贼作品' target='_blank'>爱潜水的乌贼</a></span></li><li><a href='/wozhenshidamingxing/' title='我真是大明星' target='_blank'>我真是大明星</a><span><a href='/changyu.html' title='尝谕作品' target='_blank'>尝谕</a></span></li><li><a href='/tezhongbingzaidushi/' title='特种兵在都市' target='_blank'>特种兵在都市</a><span><a href='/yeshisan.html' title='夜十三作品' target='_blank'>夜十三</a></span></li><li><a href='/huangjinyuchang/' title='黄金渔场' target='_blank'>黄金渔场</a><span><a href='/quanjinshudanke.html' title='全金属弹壳作品' target='_blank'>全金属弹壳</a></span></li><li><a href='/tianhuodadao/' title='天火大道' target='_blank'>天火大道</a><span><a href='/tangjiasanshao.html' title='唐家三少作品' target='_blank'>唐家三少</a></span></li><li><a href='/tianshengkejikuang/' title='天生科技狂' target='_blank'>天生科技狂</a><span><a href='/jiucheng.html' title='九城作品' target='_blank'>九城</a></span></li><li><a href='/shenyixiaonongmin/' title='神医小农民' target='_blank'>神医小农民</a><span><a href='/chuibinggege.html' title='炊饼哥哥作品' target='_blank'>炊饼哥哥</a></span></li><li><a href='/fengsaozhongshengchuan/' title='风骚重生传' target='_blank'>风骚重生传</a><span><a href='/juzizoumingqu.html' title='橘子奏鸣曲作品' target='_blank'>橘子奏鸣曲</a></span></li></ul>
+        </div>
+        <div class="box BOX2" style="display:none;">
+          <ul>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<a id="comment_done"></a>
+<div class="Layout no_h">
+  <div class="Con jj_pl">
+    <div class="Head">
+        <h2 th:text="${novel.name}+' 最新章节列表'">最新章节列表</h2>
+      </div>
+      <div class="list_box">
+        <ul th:each="lm:${novelUrls}">
+          <li>
+            <a th:text="${lm.chapterName}" th:href="@{'/book/'+${novel.id}+'/'+${lm.mongoId}}"></a>
+          </li>
+        </ul>
+	</div>
+</div>
+<div align="center"><!--AD--></div>
+<div align="left">
+<br/><h3>阅读提示：</h3><br/>
+1、小说《人皇纪》所描述的内容只是作者【<a href='/ruigen.html' target='_blank'>黄埔奇</a>】的个人写作观点，不保证其中情节的真实性，请勿模仿！<br/>
+2、《人皇纪》版权归原作者【<a href='/ruigen.html' target='_blank'>黄埔奇</a>】所有，本书仅代表作者本人的文学作品观点，仅供娱乐请莫当真。
+</div>
+</div>
+
+<!--body结束-->
+<div class="clear"></div>
+<!--footer开始-->
+<div class="Layout ft" style="position:relative">
+  <div class="center">
+    <div class="bot_logo"><a href="/" title="新书小说网-锦尚中国源码论坛"><img src="/images/bot_logo.png" alt="新书小说网-锦尚中国源码论坛" /></a></div>
+    <div class="link">
+      <div class="z"><li><a href='http://bbs.52jscn.com' target='_blank'>锦尚中国</a> </li><li><a href='http://host.52jscn.com' target='_blank'>锦尚数据</a> </li></div>
+      <div class="f"><span>版权声明：本站小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</span></div>
+    </div>
+  </div>
+</div>
+<div class="floatBox">
+  <ul class="fbox">
+    <li class="fli sq"><a href="javascript:addBookmark('官道无疆| 瑞根-新书小说网-锦尚中国源码论坛')" class="fbtn" title="收藏本书">收藏本书</a></li>
+    <li class="fli udLI"><a class="fbtn UD">返回顶部</a></li>
+  </ul>
+</div>
+<div class="TIP"></div>
+<div class="MAK"></div>
+<!--footer结束-->
+<div style="display:none;">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.lazyload.min.js"></script>
+  <script type="text/javascript">
+  var cmsUrl="/";
+  $("img.lazy").show().lazyload({placeholder:"/images/loading.gif",loading:true,threshold:200,failure_limit:10,skip_invisible:false,effect:"fadeIn"});
+  function btnin(){$("#info").css("display","block")};function btnout(){$("#info").css("display","none")};
+  window.onscroll=function(){var top = (document.documentElement.scrollTop || document.body.scrollTop);if (top>170){$(".topbox").addClass("topFLOAT");$(".UD").fadeIn();}else{$(".topbox").removeClass("topFLOAT");$(".UD").fadeOut();}};
+  $(".UD").click(function(){$("html,body").animate({scrollTop:0});});
+  $(".fli").hover(function(){$(this).addClass("on");},function(){$(this).removeClass("on");});
+  $(".tab .head a").hover(function(){$(this).siblings().removeClass("active");$(this).addClass("active");$(".tab .box").hide();var showBOX=$(this).attr("showBOX");$("."+showBOX).show();});
+  $(".t_btn a").hover(function(){$(".t_btn a").removeClass("active");$(this).addClass("active");var ul_class=$(this).attr("name");$(".r_box.djb ul").css("display","none");$(".r_box.djb ul"+"."+ul_class).css("display","block");});
+  function addBookmark(title,url) {
+  if(!title){title =document.title};
+  if(!url){url=window.location.href}
+  try{  
+		  window.external.AddFavorite(url,title);  
+	  }catch(e){  
+		  try{  
+			  window.sidebar.addPanel(title,url,"");  
+		  }catch(e){  
+			  alert("360、火狐等浏览器不支持自动添加收藏夹标签。关闭本对话框后，请您使用快捷键 Ctrl+D 进行添加。");  
+		  }
+	}
+}
+  </script>
+  <script type="text/javascript" src="../js/xmlJS.js"></script>
+</div>
+
+
+</body>
+</html>

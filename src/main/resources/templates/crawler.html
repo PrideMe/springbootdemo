@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 th:text="'耗时：'+${time}+'ms'"></h3>
+<ul th:each="aaa:${startPages}">
+    <li style="list-style-type: none">
+        <a target="_blank" th:href="${aaa.startPageUrl}" th:text="${aaa.startPageUrl}"></a>
+        <span th:text="${aaa.totalPage} +'页   类别：'+ ${aaa.typeName}"></span>
+    </li>
+</ul>
+</body>
+</html>

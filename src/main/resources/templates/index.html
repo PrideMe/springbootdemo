@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>书悦中国--书香四溢，悦目娱心</title>
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/body_index.css" />
+</head>
+<body class="body">
+<!--头部开始-->
+<div class="Layout topbox">
+    <div class="topbar">
+        <div class="mainbox">
+            <div class="left_con">
+                <ul>
+                    <li><a href="/" title="书悦小说网">书悦小说网</a></li>
+                    <li>
+                        <em class="ver">|</em>
+                        <a href="/" class="name" style="color:#F00;" title="在手机上阅读" target="_blank">手机版</a>
+                    </li>
+                    <li>
+                        <em class="ver">|</em>
+                        <a href="/" class="name" style="color:#F00;" title="完本小说" target="_blank">完本小说</a>
+                    </li>
+                    <li>
+                        <em class="ver">|</em>
+                        <a href="/" class="name" style="color:#F00;" title="小说下载" target="_blank">小说下载</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_con">
+                <ul class="UL">
+                    <li>本站所有小说，均为<font class="red"> 全文免费在线阅读 </font></li>
+                    <li>
+                        <em class="ver">|</em>
+                        <a href="javascript:" title="加入收藏夹" onclick="addBookmark('书悦小说网','http://www.shuyuechina.com')">收藏本站</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Layout h">
+    <div class="header">
+        <div class="top">
+            <div class="logo">
+                <a href="http://www.shuyuechina.com" title="书悦小说网 书香四溢，悦目娱心">
+                    <img src="img/logo.png" alt="书悦小说网 书香四溢，悦目娱心"/>
+                </a>
+            </div>
+            <div class="s_box">
+                <form name="searchform" id="searchform" method="get" target="_blank" action="/searchBook">
+                    <input name="w" id="searchword" type="text" maxlength="18" />
+                    <input type="submit" value="搜索" id="s_btn" />
+                </form>
+                <div class="hotword">
+                    <h3>热搜：</h3>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="box">
+                <a href="" class="home" title="书悦小说网 书香四溢，悦目娱心">书悦中国小说网</a>
+                <a href="" title="玄幻奇幻小说">玄幻·奇幻</a>
+                <a href="" title="仙侠武侠小说">仙侠·武侠</a>
+                <a href="" title="都市言情小说">都市·言情</a>
+                <a href="" title="穿越历史小说">穿越·历史</a>
+                <a href="" title="科幻灵异小说">科幻·灵异</a>
+                <a href="" title="同人网游小说">同人·网游</a>
+                <a href="" title="小说排行榜">小说排行榜</a>
+                <a href="" title="小说书库小说">小说书库</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--header结束-->
+<div class="clear"></div>
+<!--body开始-->
+<!--<div class="Layout">-->
+    <!--<div class="left fyb">-->
+        <!--<div class="head">-->
+            <!--<h2>风云榜</h2>-->
+        <!--</div>-->
+        <!--<div class="con">-->
+            <!--<ul class="list" th:each="nov:${novels}">-->
+                <!--<li>-->
+                    <!--<div class="div_c">[<a target="_blank" class="c" th:title="${nov.novelType.typeName}" th:text="${nov.novelType.typeName}">玄幻奇幻</a>]</div>-->
+                    <!--<div class="div_t"><a th:href="@{'/booklist/'+${nov.id}}" target="_blank" class="t" th:title="${nov.name}" th:text="${nov.name}"></a><span th:text="'('+${nov.id}+')'">(0)</span></div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="bot"></div>-->
+    <!--</div>-->
+    <!--<div class="right zxgx">-->
+        <!--<div class="head">-->
+            <!--<h2>封推新书</h2></div>-->
+        <!--<div class="con">-->
+            <!--<div class="u">-->
+                <!--<div class="pic"><a th:href="@{'/booklist/'+${novel.id}}" th:title="${novel.name}" target="_blank"><img class="lazy" th:src="${novel.picUrl}" /></a></div>-->
+                <!--<div class="title">-->
+                    <!--<h2><a th:title="${novel.name}" th:href="@{'/booklist/'+${novel.id}}" target="_blank" th:text="${novel.name}">书名</a></h2>-->
+                    <!--<span><a th:text="${novel.author}" target="_blank">黄埔奇</a>&#160;&#160;类型：[<A href="/xuanhuan.html" target="_blank" th:text="${novel.novelType.typeName}">玄幻奇幻</A>]</span>-->
+                <!--</div>-->
+                <!--<div class="info">-->
+                    <!--<p>最新章节：<a href="/xianwutongxiu/666.html"  title="仙武同修-第 020 章 ：街头险战" target="_blank">第 020 章 ：街头险战</a><br /></p>-->
+                    <!--<p th:text="${novel.resume}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="d">-->
+                <!--<div class="n_p_box">-->
+                    <!--<div></div>-->
+                    <!--<input type="button" title="上一页" value="上一页" class="active" />-->
+                    <!--<input type="button" title="下一页" value="下一页" />-->
+                <!--</div>-->
+                <!--<div class="con_box">-->
+                    <!--<div class="box">-->
+                        <!--<div class="lm_li"><h2><a href="/xuanhuan.html" title="玄幻奇幻">玄幻小说</a></h2><ul><li>·<span>[<a href="/nanshanyinshi.html" target="_blank" title="南山隐士作品">南山隐士</a>]</span><a href="/nongjiaxiantian/" title="农家仙田" target="_blank">农家仙田</a></li><li>·<span>[<a href="/fangxiang.html" target="_blank" title="方想作品">方想</a>]</span><a href="/wuxingtian/" title="五行天" target="_blank">五行天</a></li><li>·<span>[<a href="/shaliya.html" target="_blank" title="纱利雅作品">纱利雅</a>]</span><a href="/kenanzhimaolijiejie/" title="柯南之毛利姐姐" target="_blank">柯南之毛利姐姐</a></li><li>·<span>[<a href="/beibeizhi.html" target="_blank" title="贝贝智作品">贝贝智</a>]</span><a href="/dushiqiyuan/" title="都市奇缘" target="_blank">都市奇缘</a></li><li>·<span>[<a href="/yueshao.html" target="_blank" title="月少作品">月少</a>]</span><a href="/chaoshenjiyouhuo/" title="超神级诱惑" target="_blank">超神级诱惑</a></li></ul></div><div class="lm_li"><h2><a href="/xianxia.html" title="仙侠武侠">仙侠武侠</a></h2><ul><li>·<span>[<a href="/shuiqiu.html" target="_blank" title="睡秋作品">睡秋</a>]</span><a href="/xianluzhizun/" title="仙路至尊" target="_blank">仙路至尊</a></li><li>·<span>[<a href="/fengwuyouxia.html" target="_blank" title="风武游侠作品">风武游侠</a>]</span><a href="/luanyumiren/" title="乱欲迷人" target="_blank">乱欲迷人</a></li><li>·<span>[<a href="/dijiutianming.html" target="_blank" title="第九天命作品">第九天命</a>]</span><a href="/shengongbaochuancheng/" title="申公豹传承" target="_blank">申公豹传承</a></li><li>·<span>[<a href="/huimofadexiaozhu.html" target="_blank" title="会魔法的小猪作品">会魔法的小猪</a>]</span><a href="/zhongshengxiyouzhiwanjieyaozun/" title="重生西游之万界妖尊" target="_blank">重生西游之万界妖尊</a></li><li>·<span>[<a href="/shiyanxiaobaishu.html" target="_blank" title="实验小白鼠作品">实验小白鼠</a>]</span><a href="/wushenfengbao/" title="武神风暴" target="_blank">武神风暴</a></li></ul></div><div class="lm_li"><h2><a href="/dushi.html" title="都市言情">都市言情</a></h2><ul><li>·<span>[<a href="/chuibinggege.html" target="_blank" title="炊饼哥哥作品">炊饼哥哥</a>]</span><a href="/shenyixiaonongmin/" title="神医小农民" target="_blank">神医小农民</a></li><li>·<span>[<a href="/juzizoumingqu.html" target="_blank" title="橘子奏鸣曲作品">橘子奏鸣曲</a>]</span><a href="/fengsaozhongshengchuan/" title="风骚重生传" target="_blank">风骚重生传</a></li><li>·<span>[<a href="/lingdaoren.html" target="_blank" title="领导人作品">领导人</a>]</span><a href="/hunshixiaonongmin/" title="混世小农民" target="_blank">混世小农民</a></li><li>·<span>[<a href="/liushantianshu.html" target="_blank" title="六扇天书作品">六扇天书</a>]</span><a href="/zuihouyigemojinxiaowei/" title="最后一个摸金校尉" target="_blank">最后一个摸金校尉</a></li><li>·<span>[<a href="/zuibuguai.html" target="_blank" title="醉不乖作品">醉不乖</a>]</span><a href="/nvcunchangdetieshenshenyi/" title="女村长的贴身神医" target="_blank">女村长的贴身神医</a></li></ul></div></div>-->
+                    <!--<div class="box" style="display:none;">-->
+                        <!--<div class="lm_li">-->
+                            <!--<h2><a href="/chuanyue.html" title="穿越历史">穿越历史</a></h2>-->
+                            <!--<ul>-->
+                                <!--<li>·<span>[<a href="/hebiancao.html" target="_blank" title="河边草作品">河边草</a>]</span><a href="/beixiong/" title="北雄" target="_blank">北雄</a></li>-->
+                                <!--<li>·<span>[<a href="/yueguan.html" target="_blank" title="月关作品">月关</a>]</span><a href="//" title="回到明朝当王爷" target="_blank">回到明朝当王爷</a></li>-->
+                                <!--<li>·<span>[<a href="/wuwaifengchuiliang.html" target="_blank" title="屋外风吹凉作品">屋外风吹凉</a>]</span><a href="/" title="醉迷红楼" target="_blank">醉迷红楼</a></li>-->
+                                <!--<li>·<span>[<a href="/yaolicijingke.html" target="_blank" title="要离刺荆轲作品">要离刺荆轲</a>]</span><a href="/" title="我要做皇帝" target="_blank">我要做皇帝</a></li>-->
+                                <!--<li>·<span>[<a href="/tianzi.html" target="_blank" title="天子作品">天子</a>]</span><a href="/" title="寒门状元" target="_blank">寒门状元</a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div class="lm_li">-->
+                            <!--<h2><a href="/kehuan.html" title="科幻灵异">科幻灵异</a></h2>-->
+                                <!--<ul></ul></div><div class="lm_li"><h2><a href="/tongren.html" title="同人网游">同人网游</a></h2><ul><li>·<span>[<a href="/tuyanlanmei.html" target="_blank" title="兔眼蓝莓作品">兔眼蓝莓</a>]</span><a href="/luanhaomen/" title="乱豪门" target="_blank">乱豪门</a></li><li>·<span>[<a href="/zhushengfutu.html" target="_blank" title="诸生浮屠作品">诸生浮屠</a>]</span><a href="/shenyuanzhuzai/" title="深渊主宰" target="_blank">深渊主宰</a></li><li>·<span>[<a href="/fabiaodewoniu.html" target="_blank" title="发飙的蜗牛作品">发飙的蜗牛</a>]</span><a href="/jiuxingtianchenjue/" title="九星天辰诀" target="_blank">九星天辰诀</a></li><li>·<span>[<a href="/nanxibeiqing.html" target="_blank" title="南希北庆作品">南希北庆</a>]</span><a href="/beisongxiaochushi/" title="北宋小厨师" target="_blank">北宋小厨师</a></li><li>·<span>[<a href="/heiyanxiaopingguo.html" target="_blank" title="黑岩小苹果作品">黑岩小苹果</a>]</span><a href="/yingxionglianmengzhizhizunwangzhe/" title="英雄联盟之至尊王者" target="_blank">英雄联盟之至尊王者</a></li></ul></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--<div class="Layout bw">-->
+    <!--<div class="Head">-->
+        <!--<h2>新书推荐榜</h2>-->
+        <!--<span class="j"></span>-->
+        <!--<div class="morelist">-->
+            <!--<div class="more"><a href="/shuku.html" title="查看所有新书" target="_blank">更多新书&#160;>></a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="Con">-->
+        <!--<div class="Left">-->
+            <!--<div class='bw_box'>-->
+                <!--<div class='t'><A href='/xueyinglingzhu/' target='_blank' title='雪鹰领主在线阅读txt下载'>雪鹰领主</A><span>（推荐：111）</span></div>-->
+                <!--<div class='pic'><A href='/xueyinglingzhu/' target='_blank' title='雪鹰领主在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M30296210-124A.jpg' alt='雪鹰领主在线阅读txt下载'/></a></div>-->
+                <!--<div class='a_l'>-->
+                    <!--<div class='a'><span>作者:</span><A href='/wochixihongshi.html' target='_blank' title='我吃西红柿新书' >我吃西红柿</A></div>-->
+                    <!--<div class='l'><span>类型:</span><A href='/xuanhuan.html' target='_blank' title='玄幻·奇幻小说' >玄幻·奇幻</A></div>-->
+                    <!--<div class='l'><span>下载:</span><A href='/txt/xueyinglingzhu.html' target='_blank' title='雪鹰领主txt下载' >txt下载</A></div>-->
+                <!--</div>-->
+                <!--<div class='info'>-->
+                    <!--<p>简介：深海魔兽的呼吸形成永不停息的风暴…… 熔岩巨人的脚步毁灭一座座 ...</p>-->
+                <!--</div>-->
+            <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/yijianfeixian/' target='_blank' title='一剑飞仙在线阅读txt下载'>一剑飞仙</A><span>（推荐：21）</span></div>-->
+            <!--<div class='pic'><A href='/yijianfeixian/' target='_blank' title='一剑飞仙在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M305461640-142H.jpg' alt='一剑飞仙在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/liulangdegamo.html' target='_blank' title='流浪的蛤蟆新书' >流浪的蛤蟆</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/xianxia.html' target='_blank' title='仙侠·武侠小说' >仙侠·武侠</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/yijianfeixian.html' target='_blank' title='一剑飞仙txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：千锤百炼烈火雷霆，十年换得一剑光寒。 潜牙伏爪百般忍受，只为今 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/hanmenjueqi/' target='_blank' title='寒门崛起在线阅读txt下载'>寒门崛起</A><span>（推荐：17）</span></div>-->
+            <!--<div class='pic'><A href='/hanmenjueqi/' target='_blank' title='寒门崛起在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M3030450-24F0.jpg' alt='寒门崛起在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/zhulangcaijin.html' target='_blank' title='朱郎才尽新书' >朱郎才尽</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/chuanyue.html' target='_blank' title='穿越·历史小说' >穿越·历史</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/hanmenjueqi.html' target='_blank' title='寒门崛起txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：这是一个就业路上屡被蹂躏的古汉语专业研究生，回到了明朝中叶，进 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/wushenji/' target='_blank' title='巫神纪在线阅读txt下载'>巫神纪</A><span>（推荐：15）</span></div>-->
+            <!--<div class='pic'><A href='/wushenji/' target='_blank' title='巫神纪在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M331213Q0-2F21.jpg' alt='巫神纪在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/xuehong.html' target='_blank' title='血红新书' >血红</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/xuanhuan.html' target='_blank' title='玄幻·奇幻小说' >玄幻·奇幻</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/wushenji.html' target='_blank' title='巫神纪txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介： 当历史变成传说 当传说变成神话 当神话都已经斑驳点点 当时间的沙 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/huangjinyuchang/' target='_blank' title='黄金渔场在线阅读txt下载'>黄金渔场</A><span>（推荐：13）</span></div>-->
+            <!--<div class='pic'><A href='/huangjinyuchang/' target='_blank' title='黄金渔场在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M3K0I620-1K94.jpg' alt='黄金渔场在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/quanjinshudanke.html' target='_blank' title='全金属弹壳新书' >全金属弹壳</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/huangjinyuchang.html' target='_blank' title='黄金渔场txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：爱蓝天，爱绿树，更爱波澜锦尚中国的大海。 浅海鱼，深海鱼，龙虾 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/tezhongbingzaidushi/' target='_blank' title='特种兵在都市在线阅读txt下载'>特种兵在都市</A><span>（推荐：13）</span></div>-->
+            <!--<div class='pic'><A href='/tezhongbingzaidushi/' target='_blank' title='特种兵在都市在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M3TW31P-391J.jpg' alt='特种兵在都市在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/yeshisan.html' target='_blank' title='夜十三新书' >夜十三</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/tezhongbingzaidushi.html' target='_blank' title='特种兵在都市txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：杨洛说：国家和国家之间靠的是大炮，男人和男人之间靠的是钞票，男 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/yishizhizun/' target='_blank' title='一世之尊在线阅读txt下载'>一世之尊</A><span>（推荐：12）</span></div>-->
+            <!--<div class='pic'><A href='/yishizhizun/' target='_blank' title='一世之尊在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M30310a10-36227.jpg' alt='一世之尊在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/aiqianshuidewuzei.html' target='_blank' title='爱潜水的乌贼新书' >爱潜水的乌贼</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/yishizhizun.html' target='_blank' title='一世之尊txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：我这一生，不问前尘，不求来世，只轰轰烈烈，快意恩仇，败尽各族英 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/wujieshushi/' target='_blank' title='巫界术士在线阅读txt下载'>巫界术士</A><span>（推荐：12）</span></div>-->
+            <!--<div class='pic'><A href='/wujieshushi/' target='_blank' title='巫界术士在线阅读txt下载'><img src='/images/jipin-default.jpg' alt='巫界术士在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/wenchaogong.html' target='_blank' title='文抄公新书' >文抄公</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/wujieshushi.html' target='_blank' title='巫界术士txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：雷林带着智脑穿越，成为一名贵族身份的巫师学徒，通过利用自身优势 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/guandaowujiang/' target='_blank' title='官道无疆在线阅读txt下载'>官道无疆</A><span>（推荐：12）</span></div>-->
+            <!--<div class='pic'><A href='/guandaowujiang/' target='_blank' title='官道无疆在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M33630S10-21B5.jpg' alt='官道无疆在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/ruigen.html' target='_blank' title='瑞根新书' >瑞根</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/guandaowujiang.html' target='_blank' title='官道无疆txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：自信人生二百年，会当击水三千里！从毕业分配失意到自信人生的崛起 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/nitianxieshen/' target='_blank' title='逆天邪神在线阅读txt下载'>逆天邪神</A><span>（推荐：10）</span></div>-->
+            <!--<div class='pic'><A href='/nitianxieshen/' target='_blank' title='逆天邪神在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M3062151P-324P.jpg' alt='逆天邪神在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/huoxingyinli.html' target='_blank' title='火星引力新书' >火星引力</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/xuanhuan.html' target='_blank' title='玄幻·奇幻小说' >玄幻·奇幻</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/nitianxieshen.html' target='_blank' title='逆天邪神txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：掌天毒之珠，承邪神之血，修逆天之力，一代邪神，君临天下?咎砑游 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/wozhenshidamingxing/' target='_blank' title='我真是大明星在线阅读txt下载'>我真是大明星</A><span>（推荐：10）</span></div>-->
+            <!--<div class='pic'><A href='/wozhenshidamingxing/' target='_blank' title='我真是大明星在线阅读txt下载'><img src='/images/jipin-default.jpg' alt='我真是大明星在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/changyu.html' target='_blank' title='尝谕新书' >尝谕</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/dushi.html' target='_blank' title='都市·言情小说' >都市·言情</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/wozhenshidamingxing.html' target='_blank' title='我真是大明星txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：世界变成一款游戏，世界背景被游戏随机修改了，幡然一新，历史与社 ...</p>-->
+            <!--</div>-->
+        <!--</div><div class='bw_box'>-->
+            <!--<div class='t'><A href='/mieshiwuxiu/' target='_blank' title='灭世武修在线阅读txt下载'>灭世武修</A><span>（推荐：8）</span></div>-->
+            <!--<div class='pic'><A href='/mieshiwuxiu/' target='_blank' title='灭世武修在线阅读txt下载'><img src='/uploads/allimg/c151222/1450M3TG4W0-1D06.jpg' alt='灭世武修在线阅读txt下载'/></a></div>-->
+            <!--<div class='a_l'>-->
+                <!--<div class='a'><span>作者:</span><A href='/tianshangwuyu.html' target='_blank' title='天上无鱼新书' >天上无鱼</A></div>-->
+                <!--<div class='l'><span>类型:</span><A href='/xuanhuan.html' target='_blank' title='玄幻·奇幻小说' >玄幻·奇幻</A></div>-->
+                <!--<div class='l'><span>下载:</span><A href='/txt/mieshiwuxiu.html' target='_blank' title='灭世武修txt下载' >txt下载</A></div>-->
+            <!--</div>-->
+            <!--<div class='info'>-->
+                <!--<p>简介：从一个闪耀之星，跌落到世人白眼。体味人生百态，尝遍世态炎凉。总 ...</p>-->
+            <!--</div>-->
+        <!--</div></div>-->
+        <!--<div class="Right">-->
+            <!--<div class="r_box qldzb">-->
+                <!--<div class="head">-->
+                    <!--<h2>本周点击榜</h2>-->
+                <!--</div>-->
+                <!--<ul><li><a href='/xueyinglingzhu/' title='雪鹰领主-我吃西红柿作品' target='_blank'>雪鹰领主</a><span>360</span></li><li class='first_con'><div class='pic'><a href='/xueyinglingzhu/' title='雪鹰领主' target='_blank'><img class='lazy' src='/uploads/allimg/c151222/1450M30296210-124A.jpg' alt='雪鹰领主' /></a></div><div class='a_l'><div class='a'><span>作者:</span><a href='/wochixihongshi.html' target='_blank' title='我吃西红柿作品'>我吃西红柿</a></div><div class='l'><span>类型:</span>[<A href='/xuanhuan.html' target='_blank' title='玄幻奇幻小说' >玄幻奇幻</A>]</div><div class='l'><span>下载:</span><a href='/txt/xueyinglingzhu.html' target='_blank' title='雪鹰领主txt下载'>txt下载</a></div></div><div class='info'><p><a href='/xueyinglingzhu/' target='_blank'>简介：深海魔兽的呼吸形成永不停息的风暴…… 熔岩巨人的脚……</a></p></div></li><li><a href='/xianwutongxiu/' title='仙武同修-月如火作品' target='_blank'>仙武同修</a><span>21</span></li><li><a href='/yijianfeixian/' title='一剑飞仙-流浪的蛤蟆作品' target='_blank'>一剑飞仙</a><span>1</span></li><li><a href='/guandaowujiang/' title='官道无疆-瑞根作品' target='_blank'>官道无疆</a><span>1</span></li><li><a href='/tiexueqiangguo/' title='铁血强国-流泪的鱼wyj作品' target='_blank'>铁血强国</a><span>1</span></li></ul></div><div class="r_box qldzb">-->
+            <!--<div class="head">-->
+                <!--<h2>本周推荐榜</h2>-->
+            <!--</div>-->
+            <!--<ul><li><a href='/xueyinglingzhu/' title='雪鹰领主-我吃西红柿作品' target='_blank'>雪鹰领主</a><span>93</span></li><li class='first_con'><div class='pic'><a href='/xueyinglingzhu/' title='雪鹰领主' target='_blank'><img class='lazy' src='/uploads/allimg/c151222/1450M30296210-124A.jpg' alt='雪鹰领主' /></a></div><div class='a_l'><div class='a'><span>作者:</span><a href='/wochixihongshi.html' target='_blank' title='我吃西红柿作品'>我吃西红柿</a></div><div class='l'><span>类型:</span>[<A href='/xuanhuan.html' target='_blank' title='玄幻奇幻小说' >玄幻奇幻</A>]</div><div class='l'><span>下载:</span><a href='/txt/xueyinglingzhu.html' target='_blank' title='雪鹰领主txt下载'>txt下载</a></div></div><div class='info'><p><a href='/xueyinglingzhu/' target='_blank'>简介：深海魔兽的呼吸形成永不停息的风暴…… 熔岩巨人的脚……</a></p></div></li><li><a href='/xianwutongxiu/' title='仙武同修-月如火作品' target='_blank'>仙武同修</a><span>5</span></li><li><a href='/hanmenjueqi/' title='寒门崛起-朱郎才尽作品' target='_blank'>寒门崛起</a><span>0</span></li><li><a href='/yishizhizun/' title='一世之尊-爱潜水的乌贼作品' target='_blank'>一世之尊</a><span>0</span></li><li><a href='/yijianfeixian/' title='一剑飞仙-流浪的蛤蟆作品' target='_blank'>一剑飞仙</a><span>0</span></li></ul></div></div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--<div class="Layout jp">-->
+    <!--<div class="Head">-->
+        <!--<h2>精品推荐</h2>-->
+        <!--<span>Boutique Recommend</span> <span class="j"></span>-->
+        <!--<div class="morelist">-->
+            <!--<div class="more"><a href="/shuku.html" title="更多精品小说" target="_blank">更多精品小说&#160;>></a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="Con jp">-->
+        <!--<div class="Left">-->
+            <!--<div class="l_con">-->
+                <!--<div class="pic">-->
+                    <!--<ul>-->
+                        <!--<li><a href="/xueyinglingzhu/" class="p" title="类型：玄幻·奇幻，作者：我吃西红柿，总点击：436" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M30296210-124A.jpg" alt="/xueyinglingzhu" /> </a><a href="/xueyinglingzhu/" class="t" title="类型：玄幻·奇幻，作者：我吃西红柿，总点击：436" target="_blank">雪鹰领主</a></li><li><a href="/wushenji/" class="p" title="类型：玄幻·奇幻，作者：血红，总点击：70" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M331213Q0-2F21.jpg" alt="/wushenji" /> </a><a href="/wushenji/" class="t" title="类型：玄幻·奇幻，作者：血红，总点击：70" target="_blank">巫神纪</a></li><li><a href="/hesaozitongjiderizi/" class="p" title="类型：都市·言情，作者：秦长青，总点击：67" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M305E0A0-2PD.jpg" alt="/hesaozitongjiderizi" /> </a><a href="/hesaozitongjiderizi/" class="t" title="类型：都市·言情，作者：秦长青，总点击：67" target="_blank">和嫂子同居的日子</a></li><li><a href="/nitianxieshen/" class="p" title="类型：玄幻·奇幻，作者：火星引力，总点击：62" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M3062151P-324P.jpg" alt="/nitianxieshen" /> </a><a href="/nitianxieshen/" class="t" title="类型：玄幻·奇幻，作者：火星引力，总点击：62" target="_blank">逆天邪神</a></li><li><a href="/guandaowujiang/" class="p" title="类型：都市·言情，作者：瑞根，总点击：62" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M33630S10-21B5.jpg" alt="/guandaowujiang" /> </a><a href="/guandaowujiang/" class="t" title="类型：都市·言情，作者：瑞根，总点击：62" target="_blank">官道无疆</a></li><li><a href="/hanmenjueqi/" class="p" title="类型：穿越·历史，作者：朱郎才尽，总点击：61" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M3030450-24F0.jpg" alt="/hanmenjueqi" /> </a><a href="/hanmenjueqi/" class="t" title="类型：穿越·历史，作者：朱郎才尽，总点击：61" target="_blank">寒门崛起</a></li></ul>-->
+                <!--</div>-->
+                <!--<div class="lm"><div class="lm_li"><h3><a href="/xuanhuan.html" title="玄幻奇幻">玄幻奇幻</a></h3><ul><li>·<span>[<a href="/wochixihongshi.html" target="_blank" title="我吃西红柿作品">我吃西红柿</a>]</span><a href="/xueyinglingzhu/" title="雪鹰领主" target="_blank">雪鹰领主</a></li><li>·<span>[<a href="/yueruhuo.html" target="_blank" title="月如火作品">月如火</a>]</span><a href="/xianwutongxiu/" title="仙武同修" target="_blank">仙武同修</a></li><li>·<span>[<a href="/huoxingyinli.html" target="_blank" title="火星引力作品">火星引力</a>]</span><a href="/nitianxieshen/" title="逆天邪神" target="_blank">逆天邪神</a></li><li>·<span>[<a href="/xuehong.html" target="_blank" title="血红作品">血红</a>]</span><a href="/wushenji/" title="巫神纪" target="_blank">巫神纪</a></li><li>·<span>[<a href="/tianshangwuyu.html" target="_blank" title="天上无鱼作品">天上无鱼</a>]</span><a href="/mieshiwuxiu/" title="灭世武修" target="_blank">灭世武修</a></li></ul></div><div class="lm_li"><h3><a href="/xianxia.html" title="仙侠武侠">仙侠武侠</a></h3><ul><li>·<span>[<a href="/liulangdegamo.html" target="_blank" title="流浪的蛤蟆作品">流浪的蛤蟆</a>]</span><a href="/yijianfeixian/" title="一剑飞仙" target="_blank">一剑飞仙</a></li><li>·<span>[<a href="/shiyanxiaobaishu.html" target="_blank" title="实验小白鼠作品">实验小白鼠</a>]</span><a href="/wushenfengbao/" title="武神风暴" target="_blank">武神风暴</a></li><li>·<span>[<a href="/huimofadexiaozhu.html" target="_blank" title="会魔法的小猪作品">会魔法的小猪</a>]</span><a href="/zhongshengxiyouzhiwanjieyaozun/" title="重生西游之万界妖尊" target="_blank">重生西游之万界妖尊</a></li><li>·<span>[<a href="/dijiutianming.html" target="_blank" title="第九天命作品">第九天命</a>]</span><a href="/shengongbaochuancheng/" title="申公豹传承" target="_blank">申公豹传承</a></li><li>·<span>[<a href="/fengwuyouxia.html" target="_blank" title="风武游侠作品">风武游侠</a>]</span><a href="/luanyumiren/" title="乱欲迷人" target="_blank">乱欲迷人</a></li></ul></div><div class="lm_li"><h3><a href="/dushi.html" title="都市言情">都市言情</a></h3><ul><li>·<span>[<a href="/aiqianshuidewuzei.html" target="_blank" title="爱潜水的乌贼作品">爱潜水的乌贼</a>]</span><a href="/yishizhizun/" title="一世之尊" target="_blank">一世之尊</a></li><li>·<span>[<a href="/qinchangqing.html" target="_blank" title="秦长青作品">秦长青</a>]</span><a href="/hesaozitongjiderizi/" title="和嫂子同居的日子" target="_blank">和嫂子同居的日子</a></li><li>·<span>[<a href="/wenchaogong.html" target="_blank" title="文抄公作品">文抄公</a>]</span><a href="/wujieshushi/" title="巫界术士" target="_blank">巫界术士</a></li><li>·<span>[<a href="/ruigen.html" target="_blank" title="瑞根作品">瑞根</a>]</span><a href="/guandaowujiang/" title="官道无疆" target="_blank">官道无疆</a></li><li>·<span>[<a href="/quanjinshudanke.html" target="_blank" title="全金属弹壳作品">全金属弹壳</a>]</span><a href="/huangjinyuchang/" title="黄金渔场" target="_blank">黄金渔场</a></li></ul></div></div>-->
+                <!--<div class="pic">-->
+                    <!--<ul><li><a href="/nitianxianzun/" class="p" title="类型：同人·网游，作者：手机是三鸡，总点击：61" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M33621B0-1Z13.jpg" alt="/nitianxianzun" /> </a><a href="/nitianxianzun/" class="t" title="类型：同人·网游，作者：手机是三鸡，总点击：61" target="_blank">逆天仙尊</a></li><li><a href="/wujieshushi/" class="p" title="类型：都市·言情，作者：文抄公，总点击：58" target="_blank"> <img class="lazy" src="/images/jipin-default.jpg" alt="/wujieshushi" /> </a><a href="/wujieshushi/" class="t" title="类型：都市·言情，作者：文抄公，总点击：58" target="_blank">巫界术士</a></li><li><a href="/yijianfeixian/" class="p" title="类型：仙侠·武侠，作者：流浪的蛤蟆，总点击：58" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M305461640-142H.jpg" alt="/yijianfeixian" /> </a><a href="/yijianfeixian/" class="t" title="类型：仙侠·武侠，作者：流浪的蛤蟆，总点击：58" target="_blank">一剑飞仙</a></li><li><a href="/yishizhizun/" class="p" title="类型：都市·言情，作者：爱潜水的乌贼，总点击：55" target="_blank"> <img class="lazy" src="/uploads/allimg/c151222/1450M30310a10-36227.jpg" alt="/yishizhizun" /> </a><a href="/yishizhizun/" class="t" title="类型：都市·言情，作者：爱潜水的乌贼，总点击：55" target="_blank">一世之尊</a></li><li><a href="/chaojishikongjunhuoshang/" class="p" title="类型：穿越·历史，作者：梦幻叮叮，总点击：52" target="_blank"> <img class="lazy" src="/images/jipin-default.jpg" alt="/chaojishikongjunhuoshang" /> </a><a href="/chaojishikongjunhuoshang/" class="t" title="类型：穿越·历史，作者：梦幻叮叮，总点击：52" target="_blank">超级时空军火商</a></li><li><a href="/wozhenshidamingxing/" class="p" title="类型：都市·言情，作者：尝谕，总点击：47" target="_blank"> <img class="lazy" src="/images/jipin-default.jpg" alt="/wozhenshidamingxing" /> </a><a href="/wozhenshidamingxing/" class="t" title="类型：都市·言情，作者：尝谕，总点击：47" target="_blank">我真是大明星</a></li></ul>-->
+                <!--</div>-->
+                <!--<div class="lm"><div class="lm_li"><h3><a href="/chuanyue.html" title="穿越历史">穿越历史</a></h3><ul><li>·<span>[<a href="/zhulangcaijin.html" target="_blank" title="朱郎才尽作品">朱郎才尽</a>]</span><a href="/hanmenjueqi/" title="寒门崛起" target="_blank">寒门崛起</a></li><li>·<span>[<a href="/menghuandingding.html" target="_blank" title="梦幻叮叮作品">梦幻叮叮</a>]</span><a href="/chaojishikongjunhuoshang/" title="超级时空军火商" target="_blank">超级时空军火商</a></li><li>·<span>[<a href="/liuleideyuwyj.html" target="_blank" title="流泪的鱼wyj作品">流泪的鱼wyj</a>]</span><a href="/tiexueqiangguo/" title="铁血强国" target="_blank">铁血强国</a></li><li>·<span>[<a href="/tianzi.html" target="_blank" title="天子作品">天子</a>]</span><a href="/hanmenzhuangyuan/" title="寒门状元" target="_blank">寒门状元</a></li><li>·<span>[<a href="/yaolicijingke.html" target="_blank" title="要离刺荆轲作品">要离刺荆轲</a>]</span><a href="/woyaozuohuangdi/" title="我要做皇帝" target="_blank">我要做皇帝</a></li></ul></div><div class="lm_li"><h3><a href="/kehuan.html" title="科幻灵异">科幻灵异</a></h3><ul></ul></div><div class="lm_li"><h3><a href="/tongren.html" title="同人网游">同人网游</a></h3><ul><li>·<span>[<a href="/shoujishisanji.html" target="_blank" title="手机是三鸡作品">手机是三鸡</a>]</span><a href="/nitianxianzun/" title="逆天仙尊" target="_blank">逆天仙尊</a></li><li>·<span>[<a href="/rushuiyi.html" target="_blank" title="如水意作品">如水意</a>]</span><a href="/yongbingdezhanzheng/" title="佣兵的战争" target="_blank">佣兵的战争</a></li><li>·<span>[<a href="/heiyanxiaopingguo.html" target="_blank" title="黑岩小苹果作品">黑岩小苹果</a>]</span><a href="/yingxionglianmengzhizhizunwangzhe/" title="英雄联盟之至尊王者" target="_blank">英雄联盟之至尊王者</a></li><li>·<span>[<a href="/nanxibeiqing.html" target="_blank" title="南希北庆作品">南希北庆</a>]</span><a href="/beisongxiaochushi/" title="北宋小厨师" target="_blank">北宋小厨师</a></li><li>·<span>[<a href="/fabiaodewoniu.html" target="_blank" title="发飙的蜗牛作品">发飙的蜗牛</a>]</span><a href="/jiuxingtianchenjue/" title="九星天辰诀" target="_blank">九星天辰诀</a></li></ul></div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="Right">-->
+            <!--<div class="r_box yddj">-->
+                <!--<div class="head">-->
+                    <!--<h2>月度点击榜</h2>-->
+                <!--</div>-->
+                <!--<ul><li><a href='/xianwutongxiu/' title='仙武同修-月如火作品' target='_blank'>仙武同修</a><span>21</span></li><li class='first_con'><div class='pic'><a href='/xianwutongxiu/' title='仙武同修' target='_blank'><img class='lazy' src='/uploads/allimg/c151222/1450M4410S20-14211.jpg' alt='仙武同修' /></a></div><div class='a_l'><div class='a'><span>作者:</span><a href='/yueruhuo.html' target='_blank' title='月如火作品'>月如火</a></div><div class='l'><span>类型:</span>[<A href='/xuanhuan.html' target='_blank' title='玄幻奇幻小说' >玄幻奇幻</A>]</div><div class='l'><span>下载:</span><a href='/txt/xianwutongxiu.html' target='_blank' title='仙武同修txt下载'>txt下载</a></div></div><div class='info'><p><a href='/xianwutongxiu/' target='_blank'>简介：……</a></p></div></li><li><a href='/xueyinglingzhu/' title='雪鹰领主-我吃西红柿作品' target='_blank'>雪鹰领主</a><span>18</span></li><li><a href='/yijianfeixian/' title='一剑飞仙-流浪的蛤蟆作品' target='_blank'>一剑飞仙</a><span>1</span></li><li><a href='/guandaowujiang/' title='官道无疆-瑞根作品' target='_blank'>官道无疆</a><span>1</span></li><li><a href='/tiexueqiangguo/' title='铁血强国-流泪的鱼wyj作品' target='_blank'>铁血强国</a><span>1</span></li></ul>-->
+            <!--</div>-->
+            <!--<div class="r_box ydhp">-->
+                <!--<div class="head">-->
+                    <!--<h2>月度推荐榜</h2>-->
+                <!--</div>-->
+                <!--<ul><li><a href='/xianwutongxiu/' title='仙武同修-月如火作品' target='_blank'>仙武同修</a><span>5</span></li><li class='first_con'><div class='pic'><a href='/xianwutongxiu/' title='仙武同修' target='_blank'><img class='lazy' src='/uploads/allimg/c151222/1450M4410S20-14211.jpg' alt='仙武同修' /></a></div><div class='a_l'><div class='a'><span>作者:</span><a href='/yueruhuo.html' target='_blank' title='月如火作品'>月如火</a></div><div class='l'><span>类型:</span>[<A href='/xuanhuan.html' target='_blank' title='玄幻奇幻小说' >玄幻奇幻</A>]</div><div class='l'><span>下载:</span><a href='/txt/xianwutongxiu.html' target='_blank' title='仙武同修txt下载'>txt下载</a></div></div><div class='info'><p><a href='/xianwutongxiu/' target='_blank'>简介：……</a></p></div></li><li><a href='/xueyinglingzhu/' title='雪鹰领主-我吃西红柿作品' target='_blank'>雪鹰领主</a><span>4</span></li><li><a href='/hanmenjueqi/' title='寒门崛起-朱郎才尽作品' target='_blank'>寒门崛起</a><span>0</span></li><li><a href='/yishizhizun/' title='一世之尊-爱潜水的乌贼作品' target='_blank'>一世之尊</a><span>0</span></li><li><a href='/yijianfeixian/' title='一剑飞仙-流浪的蛤蟆作品' target='_blank'>一剑飞仙</a><span>0</span></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--<div class="Layout ph">-->
+    <!--<div class="Head">-->
+        <!--<h2>排行榜</h2>-->
+        <!--<span>Ranking</span> <span class="j"></span>-->
+        <!--<div class="morelist">-->
+            <!--<div class="more"><a href="/paihangbang.html" title="更多排行榜" target="_blank">更多排行榜&#160;>></a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="Con ph">-->
+        <!--<div class="p_box dj">-->
+            <!--<div class="head">-->
+                <!--<h2>总点击榜</h2>-->
+            <!--</div>-->
+            <!--<div class="ul_h"> <span class="p">排序</span> <span class="s">类型<em>&#160;/&#160;</em>书名</span> <span class="d">点击数</span> </div>-->
+            <!--<ul>-->
+                <!--<li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/xueyinglingzhu/" class="t" title="雪鹰领主作者：我吃西红柿" target="_blank">雪鹰领主</a><span>(436)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/wushenji/" class="t" title="巫神纪作者：血红" target="_blank">巫神纪</a><span>(70)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/hesaozitongjiderizi/" class="t" title="和嫂子同居的日子作者：秦长青" target="_blank">和嫂子同居的日子</a><span>(67)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/nitianxieshen/" class="t" title="逆天邪神作者：火星引力" target="_blank">逆天邪神</a><span>(62)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/guandaowujiang/" class="t" title="官道无疆作者：瑞根" target="_blank">官道无疆</a><span>(62)</span></li><li>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]&#160;<a href="/hanmenjueqi/" class="t" title="寒门崛起作者：朱郎才尽" target="_blank">寒门崛起</a><span>(61)</span></li><li>[<a class="r" href="/tongren.html" title="同人网游小说" target="_blank">同人网游</a>]&#160;<a href="/nitianxianzun/" class="t" title="逆天仙尊作者：手机是三鸡" target="_blank">逆天仙尊</a><span>(61)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/wujieshushi/" class="t" title="巫界术士作者：文抄公" target="_blank">巫界术士</a><span>(58)</span></li><li>[<a class="r" href="/xianxia.html" title="仙侠武侠小说" target="_blank">仙侠武侠</a>]&#160;<a href="/yijianfeixian/" class="t" title="一剑飞仙作者：流浪的蛤蟆" target="_blank">一剑飞仙</a><span>(58)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/yishizhizun/" class="t" title="一世之尊作者：爱潜水的乌贼" target="_blank">一世之尊</a><span>(55)</span></li><li>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]&#160;<a href="/chaojishikongjunhuoshang/" class="t" title="超级时空军火商作者：梦幻叮叮" target="_blank">超级时空军火商</a><span>(52)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/wozhenshidamingxing/" class="t" title="我真是大明星作者：尝谕" target="_blank">我真是大明星</a><span>(47)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/mieshiwuxiu/" class="t" title="灭世武修作者：天上无鱼" target="_blank">灭世武修</a><span>(40)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/xianwutongxiu/" class="t" title="仙武同修作者：月如火" target="_blank">仙武同修</a><span>(40)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/qindi/" class="t" title="琴帝作者：唐家三少" target="_blank">琴帝</a><span>(38)</span></li></ul>-->
+        <!--</div>-->
+        <!--<div class="p_box hp">-->
+            <!--<div class="head">-->
+                <!--<h2>总字数榜</h2>-->
+            <!--</div>-->
+            <!--<div class="ul_h"> <span class="p">排序</span> <span class="s">类型<em>&#160;/&#160;</em>书名</span> <span class="d">总字数</span> </div>-->
+            <!--<ul><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/xueyinglingzhu/" class="t" title="雪鹰领主作者：我吃西红柿" target="_blank">雪鹰领主</a><span>(604996)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/nitianxieshen/" class="t" title="逆天邪神作者：火星引力" target="_blank">逆天邪神</a><span>(104057)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/yishizhizun/" class="t" title="一世之尊作者：爱潜水的乌贼" target="_blank">一世之尊</a><span>(103448)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/wujieshushi/" class="t" title="巫界术士作者：文抄公" target="_blank">巫界术士</a><span>(98122)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/qindi/" class="t" title="琴帝作者：唐家三少" target="_blank">琴帝</a><span>(87853)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/wushenji/" class="t" title="巫神纪作者：血红" target="_blank">巫神纪</a><span>(80398)</span></li><li>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]&#160;<a href="/chaojishikongjunhuoshang/" class="t" title="超级时空军火商作者：梦幻叮叮" target="_blank">超级时空军火商</a><span>(77919)</span></li><li>[<a class="r" href="/tongren.html" title="同人网游小说" target="_blank">同人网游</a>]&#160;<a href="/nitianxianzun/" class="t" title="逆天仙尊作者：手机是三鸡" target="_blank">逆天仙尊</a><span>(76489)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/hesaozitongjiderizi/" class="t" title="和嫂子同居的日子作者：秦长青" target="_blank">和嫂子同居的日子</a><span>(69685)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/guandaowujiang/" class="t" title="官道无疆作者：瑞根" target="_blank">官道无疆</a><span>(67460)</span></li><li>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]&#160;<a href="/hanmenjueqi/" class="t" title="寒门崛起作者：朱郎才尽" target="_blank">寒门崛起</a><span>(66565)</span></li><li>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]&#160;<a href="/mieshiwuxiu/" class="t" title="灭世武修作者：天上无鱼" target="_blank">灭世武修</a><span>(66087)</span></li><li>[<a class="r" href="/xianxia.html" title="仙侠武侠小说" target="_blank">仙侠武侠</a>]&#160;<a href="/yijianfeixian/" class="t" title="一剑飞仙作者：流浪的蛤蟆" target="_blank">一剑飞仙</a><span>(60190)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/huangjinyuchang/" class="t" title="黄金渔场作者：全金属弹壳" target="_blank">黄金渔场</a><span>(57044)</span></li><li>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]&#160;<a href="/wozhenshidamingxing/" class="t" title="我真是大明星作者：尝谕" target="_blank">我真是大明星</a><span>(52366)</span></li></ul>-->
+        <!--</div>-->
+        <!--<div class="p_box pl">-->
+            <!--<div class="head">-->
+                <!--<h2>总推荐榜</h2>-->
+            <!--</div>-->
+            <!--<div class="ul_h"> <span class="p">排序</span> <span class="s">类型<em>&#160;/&#160;</em>书名</span> <span class="d">推荐数</span> </div>-->
+            <!--<ul><li><em>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]</em>&#160;<a href="/xueyinglingzhu/" class="t" title="雪鹰领主作者：我吃西红柿" target="_blank">雪鹰领主</a><span>(111)</span></li><li><em>[<a class="r" href="/xianxia.html" title="仙侠武侠小说" target="_blank">仙侠武侠</a>]</em>&#160;<a href="/yijianfeixian/" class="t" title="一剑飞仙作者：流浪的蛤蟆" target="_blank">一剑飞仙</a><span>(21)</span></li><li><em>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]</em>&#160;<a href="/hanmenjueqi/" class="t" title="寒门崛起作者：朱郎才尽" target="_blank">寒门崛起</a><span>(17)</span></li><li><em>[<a class="r" href="/tongren.html" title="同人网游小说" target="_blank">同人网游</a>]</em>&#160;<a href="/nitianxianzun/" class="t" title="逆天仙尊作者：手机是三鸡" target="_blank">逆天仙尊</a><span>(17)</span></li><li><em>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]</em>&#160;<a href="/wushenji/" class="t" title="巫神纪作者：血红" target="_blank">巫神纪</a><span>(15)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/hesaozitongjiderizi/" class="t" title="和嫂子同居的日子作者：秦长青" target="_blank">和嫂子同居的日子</a><span>(14)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/huangjinyuchang/" class="t" title="黄金渔场作者：全金属弹壳" target="_blank">黄金渔场</a><span>(13)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/tezhongbingzaidushi/" class="t" title="特种兵在都市作者：夜十三" target="_blank">特种兵在都市</a><span>(13)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/wujieshushi/" class="t" title="巫界术士作者：文抄公" target="_blank">巫界术士</a><span>(12)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/yishizhizun/" class="t" title="一世之尊作者：爱潜水的乌贼" target="_blank">一世之尊</a><span>(12)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/guandaowujiang/" class="t" title="官道无疆作者：瑞根" target="_blank">官道无疆</a><span>(12)</span></li><li><em>[<a class="r" href="/chuanyue.html" title="穿越历史小说" target="_blank">穿越历史</a>]</em>&#160;<a href="/chaojishikongjunhuoshang/" class="t" title="超级时空军火商作者：梦幻叮叮" target="_blank">超级时空军火商</a><span>(12)</span></li><li><em>[<a class="r" href="/dushi.html" title="都市言情小说" target="_blank">都市言情</a>]</em>&#160;<a href="/wozhenshidamingxing/" class="t" title="我真是大明星作者：尝谕" target="_blank">我真是大明星</a><span>(10)</span></li><li><em>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]</em>&#160;<a href="/nitianxieshen/" class="t" title="逆天邪神作者：火星引力" target="_blank">逆天邪神</a><span>(10)</span></li><li><em>[<a class="r" href="/xuanhuan.html" title="玄幻奇幻小说" target="_blank">玄幻奇幻</a>]</em>&#160;<a href="/qindi/" class="t" title="琴帝作者：唐家三少" target="_blank">琴帝</a><span>(9)</span></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--<div class="Layout m_list">-->
+<!--&lt;!&ndash;body结束&ndash;&gt;-->
+<!--<div class="clear"></div>-->
+<!--&lt;!&ndash;footer开始&ndash;&gt;-->
+
+<!--<div class="Layout ft">-->
+    <!--<div class="center">-->
+        <!--<div class="bot_logo"><a href="/" title="新书小说网-锦尚中国源码论坛"><img class="lazy" src="/img/bot_logo.png" alt="新书小说网-锦尚中国源码论坛" /></a></div>-->
+        <!--<div class="link">-->
+            <!--<div class="f"><span>友情链接：</span></div>-->
+            <!--<div class="f"><span>版权声明：本站小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</span></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="floatBox">-->
+    <!--<ul class="fbox">-->
+        <!--<li class="fli udLI"><a class="fbtn UD">返回顶部</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="TIP"></div>-->
+<!--<div class="MAK"></div>-->
+<!--&lt;!&ndash;footer结束&ndash;&gt;-->
+<!--<div style="display:none;">-->
+    <!--<script type="text/javascript" src="/js/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="/js/jquery.lazyload.min.js"></script>-->
+    <!--<script type='text/javascript'>-->
+        <!--var cmsUrl="http://demo6.52jscn.com//";-->
+        <!--$("img.lazy").show().lazyload({placeholder:"/images/loading.gif",loading:true,threshold:200,failure_limit:10,skip_invisible:false,effect:"fadeIn"});-->
+        <!--$(".n_p_box input").click(function(){$(".n_p_box input").removeClass("active");$(this).addClass("active");$(".con_box .box").toggle();$(".n_p_box div").toggleClass("n");});-->
+        <!--function btnin(){$("#info").css("display","block")};function btnout(){$("#info").css("display","none")};-->
+        <!--window.onscroll=function(){var top = (document.documentElement.scrollTop || document.body.scrollTop);if (top>170){$(".topbox").addClass("topFLOAT");$(".UD").fadeIn();}else{$(".topbox").removeClass("topFLOAT");$(".UD").fadeOut();}};-->
+        <!--$(".UD").click(function(){$("html,body").animate({scrollTop:0});});-->
+        <!--$(".fli").hover(function(){$(this).addClass("on");},function(){$(this).removeClass("on");});-->
+
+        <!--function addBookmark(title,url) {-->
+            <!--if(!title){title =document.title};-->
+            <!--if(!url){url=window.location.href}-->
+            <!--try{-->
+                <!--window.external.AddFavorite(url,title);-->
+            <!--}catch(e){-->
+                <!--try{-->
+                    <!--window.sidebar.addPanel(title,url,"");-->
+                <!--}catch(e){-->
+                    <!--alert("360、火狐等浏览器不支持自动添加收藏夹标签。关闭本对话框后，请您使用快捷键 Ctrl+D 进行添加。");-->
+                <!--}-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
+    <!--<script type="text/javascript" src="../js/xmlJS.js"></script>-->
+<!--</div>-->
+<!--</div>-->
+</body></html>
